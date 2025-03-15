@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerin Sam James | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; scroll-behavior: smooth; transition: background 0.3s, color 0.3s; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        header { background: #007bff; color: white; text-align: center; padding: 20px; font-size: 24px; font-weight: bold; }
+        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #007bff, #0056b3); color: white; animation: fadeIn 1.5s ease-in-out; }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; }
+        .download-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: white; color: #007bff; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s; }
+        .download-btn:hover { background: #ddd; }
+        .section-title { text-align: center; font-size: 24px; margin-bottom: 20px; font-weight: bold; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); border-radius: 10px; text-align: center; transition: transform 0.3s ease-in-out; }
+        .card:hover { transform: scale(1.05); }
+        .contact { text-align: center; margin-top: 30px; }
+        .contact a { margin: 0 10px; font-size: 24px; color: #007bff; text-decoration: none; transition: color 0.3s; }
+        .contact a:hover { color: #0056b3; }
+        footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .dark-mode { background: #1e1e1e; color: #f4f4f4; }
+        .dark-mode .card { background: #333; color: #f4f4f4; }
+        .dark-mode .hero { background: linear-gradient(135deg, #0056b3, #003f80); }
+        .toggle-btn { position: fixed; top: 20px; right: 20px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        .toggle-btn:hover { background: #0056b3; }
+     .tech-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .tech-icons i {
+            margin: 5px;
+            font-size: 24px;
+        }
+        .tech-icons .fa-microsoft { color: #0078d4; }
+        .tech-icons .fa-tasks { color: #ffb900; }
+        .tech-icons .fa-envelope { color: #d13438; }
+        .tech-icons .fa-chart-bar { color: #107c10; }
+        .tech-icons .fa-share-alt { color: #603913; }
+        .tech-icons .fa-cogs { color: #0099bc; }
+        .tech-icons .fa-html5 { color: #e34c26; }
+        .tech-icons .fa-css3-alt { color: #2965f1; }
+        .tech-icons .fa-js { color: #f7df1e; }
+        .tech-icons .fa-database { color: #4285f4; }
+
+        .card-details {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .card.expanded .card-details {
+            display: block;
+        }
+
+        .expand-btn {
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+      .maple-leaf {
+            position: absolute;
+            width: 30px; /* Adjust size */
+            height: 30px;
+            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiczFImeudRTKvhNFjmxonWc2vEXmmEy-epU3loqjw_7NRPmAzldq73v4YPHoPYFokPKSuRgecSj10hZKx1cX0k7UKtWtzkbCoGUje4FJG6ytInLi3FhilziyEXw4YnjOPNKMkAqLsc1HdP1UHq-26RWxM8cYuVf94srre2IDhwX_tusxN-iXLfoe8h6wTe/s500/snowflake.png');
+            background-size: contain;
+            animation: mapleFly 10s linear infinite; /* Animation */
+        }
+
+        @keyframes mapleFly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            50% {
+                transform: translate(calc(100vw - 30px), calc(100vh / 2)) rotate(360deg);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0, calc(100vh - 30px)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+    <div class="hero">
+        <h1 id="greeting"></h1>
+        <p>Experienced IT professional specializing in software development, cloud technologies, and automation.</p>
+        <a href="https://drive.google.com/file/d/1z5XAdHEFHMaG9qu38kSh8Ul61Jg3Or4r/view?usp=sharing" download class="download-btn">Download Resume</a>
+    </div>
+    
+    <div class="container">
+      <section>
+            <h2 class="section-title">Career Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Custom Ticketing System for Service Request Management (City of Hamilton)</h3>
+                    <div class="tech-icons">
+                        <i class="fab fa-microsoft"></i> <i class="fas fa-tasks"></i> <i class="fas fa-envelope"></i> <i class="fas fa-chart-bar"></i> <i class="fas fa-share-alt"></i> <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="card-details">
+                        <p>Developed a custom ticketing system using Microsoft Power Platform, Planner, Outlook, Power BI, and SharePoint to enhance service request management and workflow automation.</p>
+                        <p><strong>Key Contributions:</strong></p>
+                        <ul>
+                            <li>Designed and implemented an automated ticketing system.</li>
+                            <li>Integrated Power Automate for automated task assignments and notifications.</li>
+                            <li>Utilized Microsoft Planner for ticket organization and prioritization.</li>
+                            <li>Leveraged SharePoint for centralized ticket storage and management.</li>
+                            <li>Integrated Outlook for automated email notifications.</li>
+                            <li>Created Power BI dashboards for real-time data visualization.</li>
+                        </ul>
+                        <p><strong>Outcome:</strong> Improved efficiency, automation, and data-driven decision-making.</p>
+                    </div>
+                    <div class="expand-btn" onclick="toggleCardDetails(this.parentElement)">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Data Accessibility across all platforms internally (City of Hamilton)</h3>
+                    <div class="tech-icons">
+                        <i class="fab fa-microsoft"></i> <i class="fab fa-microsoft"></i> <i class="fas fa-cogs"></i> <i class="fas fa-share-alt"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> <i class="fas fa-tasks"></i> <i class="fas fa-envelope"></i> <i class="fas fa-hashtag"></i>
+                    </div>
+                    <div class="card-details">
+                        <p>Built responsive App using Microsoft services to enhance the accessibility and creation of data across all platforms. Restricted the access only for the employees of City of Hamilton.</p>
+                        <p><strong>Outcome:</strong> Users can upload data from anywhere using any devices. Tasks automatically added to planner and notifications sent upon completion.</p>
+                    </div>
+                    <div class="expand-btn" onclick="toggleCardDetails(this.parentElement)">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Data Visualization Dashboard for Water and Wastewater (City of Hamilton)</h3>
+                    <div class="tech-icons">
+                        <i class="fab fa-microsoft"></i> <i class="fas fa-chart-bar"></i> <i class="fas fa-share-alt"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-details">
+                        <p>Designed an interactive dashboard to monitor real-time data of City of Hamilton Water and Wastewater.</p>
+                        <p><strong>Outcome:</strong> Increased data accessibility for water PH level, problem location identification, and location visit tracking.</p>
+                    </div>
+                    <div class="expand-btn" onclick="toggleCardDetails(this.parentElement)">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Data Visualization Dashboard for EME officer performance (City of Hamilton)</h3>
+                    <div class="tech-icons">
+                        <i class="fab fa-microsoft"></i> <i class="fas fa-chart-bar"></i> <i class="fas fa-share-alt"></i> <i class="fab fa-html5"></i> <i class="fab fa-css3-alt"></i> <i class="fab fa-js"></i> <i class="fas fa-database"></i>
+                    </div>
+                    <div class="card-details">
+                        <p>Designed an interactive dashboard to monitor the performance of Environment Monitoring and Enforcement Officer.</p>
+                        <p><strong>Outcome:</strong> Increased officer performance data accessibility for task completion, location visits, resolution methods, and risk levels.</p>
+                    </div>
+                    <div class="expand-btn" onclick="toggleCardDetails(this.parentElement)">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+      <section>
+            <h2 class="section-title">Certifications</h2>
+            <div class="cards">
+                <div class="card">Computer Forensics</div>
+                <div class="card">CompTIA A+ Specialization</div>
+                <div class="card">CISCO Cybersecurity Operations Specialization</div>
+                <div class="card">Google UX/UI Designing Professional Certificate</div>
+                <div class="card">Microsoft Azure Administrator</div>
+                <div class="card">SAP Technology Consultant</div>
+                <div class="card">Cybersecurity Professional Certificate ISC2</div>
+                <div class="card">AWS Cloud Certificate</div>
+                <div class="card">Adobe Graphic Designer Certificate</div>
+                <div class="card">Microsoft Azure Cloud Certificate</div>
+                <div class="card">Microsoft Project Management Certificate</div>
+                <div class="card">Geographic Information Systems (GIS) Specialization</div>
+                <div class="card">Front-End and Back-End Developer</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Skills</h2>
+            <div class="cards">
+                <div class="card">React.js</div>
+                <div class="card">Python</div>
+                <div class="card">C#</div>
+                <div class="card">JavaScript</div>
+                <div class="card">Power Platform</div>
+                <div class="card">Cloud Computing (Azure, AWS)</div>
+                <div class="card">Cybersecurity</div>
+                <div class="card">SQL</div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Work Experience</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>City of Hamilton, Public Works</h3>
+                    <p><strong>Environmental Quality and Compliance Technologist</strong> (05/2023 - 09/2023)</p>
+                    <p>Developed software solutions using C#, JavaScript, PHP, and Microsoft Power Platform.</p>
+                    <p>Managed compliance data and created data visualization dashboards for operational reporting.</p>
+                </div>
+                <div class="card">
+                    <h3>CyberTech</h3>
+                    <p><strong>Information System Administrator</strong> (05/2014 - 12/2017)</p>
+                    <p>Managed IT infrastructure, including cybersecurity, server administration, and database development.</p>
+                    <p>Implemented SharePoint and Power BI solutions for data analytics and business intelligence.</p>
+                </div>
+                <div class="card">
+                    <h3>Econo</h3>
+                    <p><strong>Assistant Manager</strong> (01/2019 - 05/2019)</p>
+                    <p>Oversaw daily operations, cash flow management, and staff coordination to enhance business efficiency.</p>
+                </div>
+            </div>
+        </section>
+       <section>
+          <h2 class="section-title">Education</h2>
+          <div class="cards">
+              <div class="card">
+                  <h3>Diploma in Software System Developer: Computer Science (2 years)</h3>
+                  <p>Mohawk College of Applied Arts and Technology - Hamilton, ON</p>
+              </div>
+          </div>
+        </section>
+    </div>
+    
+    <footer>
+        <h2>Get in Touch</h2>
+        <div class="contact">
+            <a href="https://github.com/Jerinsamj/Projects" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:jerinsamjames1998@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function getGreeting() {
+            let hour = new Date().getHours();
+            if (hour < 12) return "Good Morning, I'm Jerin!";
+            if (hour < 18) return "Good Afternoon, I'm Jerin!";
+            return "Good Evening, I'm Jerin!";
+        }
+        document.getElementById("greeting").textContent = getGreeting();
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+       function toggleCardDetails(cardElement) {
+            cardElement.classList.toggle("expanded");
+            const icon = cardElement.querySelector(".expand-btn i");
+            if (cardElement.classList.contains("expanded")) {
+                icon.classList.remove("fa-chevron-down");
+                icon.classList.add("fa-chevron-up");
+            } else {
+                icon.classList.remove("fa-chevron-up");
+                icon.classList.add("fa-chevron-down");
+            }
+        }
+       // Create and animate maple leaves
+        function createMapleLeaves() {
+            for (let i = 0; i < 10; i++) { // Adjust number of leaves
+                const mapleLeaf = document.createElement('div');
+                mapleLeaf.classList.add('maple-leaf');
+                mapleLeaf.style.left = `${Math.random() * 100}vw`; // Random horizontal start
+                mapleLeaf.style.top = `${Math.random() * 100}vh`; // Random vertical start
+                mapleLeaf.style.animationDelay = `${Math.random() * 5}s`; // Random delay
+                document.body.appendChild(mapleLeaf);
+            }
+        }
+
+        createMapleLeaves();
+    </script>
+</body>
+</html>
